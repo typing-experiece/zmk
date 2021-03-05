@@ -42,6 +42,30 @@
         };
     };
 
+	pwmleds {
+		compatible = "pwm-leds";
+		pwm_ledu1: pwm_led_u1 {
+			pwms = <&pwm0 28>;
+			label = "PWM CAP LED";
+		};
+		pwm_ledu2: pwm_led_u2 {
+			pwms = <&pwm0 2>;
+			label = "PWM NUM LED";
+		};
+		pwm_ledu3: pwm_led_u3 {
+			pwms = <&pwm0 26>;
+			label = "PWM SCR LED";
+		};
+        pwm_ledu4: pwm_led_u4 {
+			pwms = <&pwm0 7>;
+			label = "KEY SCR LED";
+		};
+        pwm_led_pow: pwm_led_pow {
+			pwms = <&pwm0 3>;
+			label = "PWM BUTTON LED";
+		};
+    };
+
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
@@ -90,6 +114,23 @@ default_transform: keymap_transform_0 {
         >;
     };
 };
+
+&pwm0 {
+	status = "okay";
+	ch0-pin = <28>;
+	ch0-inverted;
+	ch1-pin = <2>;
+	ch1-inverted;
+	ch2-pin = <26>;
+	ch2-inverted;
+	ch3-pin = <7>;
+	ch3-inverted;
+};
+
+&adc {
+	status = "okay";
+};
+
 
 &flash0 {
     /delete-node/ partitions;
