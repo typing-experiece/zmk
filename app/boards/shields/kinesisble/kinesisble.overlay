@@ -91,27 +91,15 @@ vbatt {
 		full-ohms = <(100000 + 100000)>;
 	};
 
-//
-// Matrix layout from:
-// https://web.archive.org/web/20201101000000*/http://humblehacker.com/blog/20100720/hacking-the-kinesis-contoured-keyboard/
-//    	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14
-// 0    =	1	2	3	4	5	6	7	8	9	0	-	ESC	F1	F2
-// 1	TB	Q	W	E	R	T	Y	U	I	O	P		F3	F4	F5
-// 2	CP	A	S	D	F	G	H	J	K	L	;	‘	F6	F7	F8
-// 3	LS	Z	X	C	V	B	N	M	,	.	/	RS	F9	F10	F11
-// 4	X2	`	IN	LT		RT	UP		DN	[	]	X1	F12	PS	SL
-// 5			SL1	SL2		SL5	SR4	SR3	SR6				PB	PG	KY
-// 6				SL4	SL3	SL6	SR1		SR2	SR5				
-// 
 default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <3>;
         rows = <3>;
    map = <
-   RC(0,12)  RC(0,13)  RC(0,14)
-   RC(0,0)  RC(0,1)  RC(0,2)
-   RC(1,0)  RC(1,1)  RC(1,2)
-        >;
+		RC(0,0) RC(0,1) RC(0,2)
+		RC(1,0) RC(1,1) RC(1,2)
+		RC(2,0) RC(2,1) RC(2,2)
+	    >;
     };
 };
 
@@ -126,11 +114,6 @@ default_transform: keymap_transform_0 {
 	ch3-pin = <7>;
 	ch3-inverted;
 };
-
-&adc {
-	status = "okay";
-};
-
 
 &flash0 {
     /delete-node/ partitions;
