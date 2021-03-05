@@ -1,0 +1,59 @@
+/*
+ * Copyright (c) 2021 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+/ {
+    combos {
+		compatible = "zmk,combos";
+        // set combo <= program> to goto bootloader
+		combo_boot {
+			timeout-ms = <100>;
+			key-positions = <17 18>;
+			bindings = <&bootloader>;
+		};
+        // set combo <= keypad> to reset
+		combo_reset {
+			timeout-ms = <100>;
+			key-positions = <16 18>;
+			bindings = <&reset>;
+		};
+	};
+
+
+    keymap0: keymap {
+        compatible = "zmk,keymap";
+
+    // default layer matches printing on keyboard
+
+default_layer {
+ bindings = <
+  &kp Q
+ >;
+};
+
+navigation_layer {
+ bindings = <
+ &kp KP_N1
+ >;
+};     
+
+dvorak_layer {
+ bindings = <
+ &kp COMMA
+ >;
+};
+
+colemak_layer {
+ bindings = <
+  &kp S
+ >;
+};
+
+};
+};
