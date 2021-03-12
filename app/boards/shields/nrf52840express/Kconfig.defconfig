@@ -1,10 +1,10 @@
 # Copyright (c) 2020 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_KINESISBLE
+if SHIELD_NRF52840EXPRESS
 
 config ZMK_KEYBOARD_NAME
-    default "kinesisbleL"
+    default "nrf52840express"
 
 config ZMK_BLE
 	default y
