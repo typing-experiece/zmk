@@ -19,16 +19,15 @@ jobs:
       matrix:
         board:
           - itsybitsy_nrf52840
-          - nice_nano
         shield:
           - breadboard_left
           - breadboard_right
-          - lily58_left
-          - lily58_right
         cmake-args: [""]
         include:
           - board: itsybitsy_nrf52840
             shield: breadboard_left
+          - board: itsybitsy_nrf52840
+            shield: breadboard_right
     steps:
       - name: Checkout
         uses: actions/checkout@v2
