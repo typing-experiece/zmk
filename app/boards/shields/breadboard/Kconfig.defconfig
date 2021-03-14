@@ -1,0 +1,28 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+if SHIELD_BREADBOARD_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "arcizzu"
+
+endif
+
+if SHIELD_BREADBOARD_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "arcizzu"
+
+endif
+
+
+if SHIELD_BREADBOARD_LEFT
+
+    config ZMK_SPLIT_BLE_ROLE_CENTRAL
+        default y
+
+endif
+
+if SHIELD_BREADBOARD_LEFT || SHIELD_BREADBOARD_RIGHT
+    CONFIG_ZMK_SPLIT=y
+endif
