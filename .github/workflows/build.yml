@@ -18,10 +18,8 @@ jobs:
     strategy:
       matrix:
         board:
-          - breadboardz
+          - itsybitsy_nrf52840
           - nice_nano
-          - nrfmicro_13
-          - proton_c
         shield:
           - breadboard_left
           - breadboard_right
